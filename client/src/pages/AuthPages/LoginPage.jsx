@@ -1,5 +1,7 @@
 import { Button, Input } from "src/components";
 import cls from "./auth.module.scss";
+import { Link } from "react-router";
+import { registerLink } from "src/consts";
 
 export const LoginPage = () => {
   return (
@@ -10,7 +12,12 @@ export const LoginPage = () => {
         <Input label="Пароль" isPassword={true} />
         <Button>Войти</Button>
       </form>
-      <p>Нет аккаунта? Зарегестрироваться</p>
+      <p className={cls.message}>
+        Нет аккаунта?{" "}
+        <Link to={registerLink()} className={cls.link}>
+          Зарегестрироваться
+        </Link>
+      </p>
     </div>
   );
 };
